@@ -1,0 +1,49 @@
+JUSTIN CHEN "I pledge that I have abided by the Stevens Honor System."
+Lab Partner: Harris Pyo
+
+Computer Specs
+CPU: Processor	Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, 2592 Mhz, 6 Core(s), 12 Logical Processor(s)
+Clock speed: 2.60GHz
+Memory type: 500GB SSD and 1TB Hard drive
+Amount of RAM: 16 GB
+Ram Speed: 2933 MHz
+Cache: L1 - 384 KB, L2 - 1.5 MB, L3 - 12 MB 
+
+Results from running bench.exe
+sum of fractions       :        5916    5836    5789    
+read in 64-bit numbers :        156     60      60      
+read 64-bit every 2    :        108     88      88      
+read 64-bit k=4        :        168     152     168     
+read 64-bit k=8        :        316     316     324     
+read 64-bit k=16       :        530     532     521     
+read 64-bit k=32       :        751     745     751     
+read 64-bit k=1k       :        708     677     681     
+write 64-bit seq       :        136     128     136     
+write 64-bit k=2       :        140     133     132     
+write 64-bit k=4       :        244     244     240     
+write 64-bit k=8       :        481     478     474     
+write 64-bit k=16      :        713     712     705     
+write 64-bit k=32      :        937     945     944     
+write 64-bit k=1024    :        1002    977     964     
+⌂nx⌂bel+⌂nx⌂bel+:98
+testing testing 123
+encoded using DOV:    xtzxxgk1}ib}e⌂n, ;?
+decoded using DOV:    testing testing 123
+crc64                 : 205     196     204     
+crc64 using AVX       : 88      92      96    
+
+Part 3 Questions
+a. How much faster is CRC using intrinsics vs. regular C++?
+It is about 2 times faster using intrinsics compared to regular C++
+
+b. Why is the CRC using the intrinsics more efficient than the crc code written in straight C++?
+CRC using intrincsics is more efficient than CRC written in straight C++ because it makes assembly code more optimized 
+
+c. What is an Intel Intrinsic?
+Intel instrinsic allows you to use C++ functions and variables in assembly coded functions
+
+d. What is the disadvantage of embedding an intrinsic in your code?
+The disadvantage of embedding intrinsic into your assembly code is that it can cause higher latency. Typically newer machines will use embedded intrinsic code
+
+e. We did not have time to benchmark the dov vs. the dov8 code. But the dov8 is optimized by precomputing the key into 64-bit values. Estimate how much more efficient the dov8 code might be on processing a large (1GB) block of memory.
+The dov8 function should encrypt 8 times faster than the normal dov function as it is encrypting 8 bytes at a timed as opposed to only 1 byte at a time in the normal dov function.

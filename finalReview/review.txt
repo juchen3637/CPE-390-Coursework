@@ -1,0 +1,34 @@
+uint64_t f1(uint64_t a, uint64_t b) {
+    uint64_t x = 3 + 4; // _______________________
+    return a * 2 + b * 16 + x;// _______________________
+}
+
+leaq ($3, $4), %rax
+shlq $1, %rcx
+shlq $4, %rdx
+leaq (%rcx, %rdx), %rax
+ret
+
+uint64_t f2(uint64_t a, uint64_t b) {
+    return a / 2 + b % 4; // ___________________________
+}
+
+shrq $1, %rcx
+andq $3, %rdx
+leaq (%rcx, %rdx), %rax
+ret
+
+uint64_t f3(uint64_t a) {
+    return (a << 3) | (a >> 61);  // _____________________
+}
+
+rol $3, %rcx
+movq %rcx, %rax
+ret
+
+uint64_t f4(uint64_t a) {
+    return a * 9;  // _____________________
+}
+
+leaq (%rcx, %rcx, $8), %rax
+ret
